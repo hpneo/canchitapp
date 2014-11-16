@@ -18,3 +18,5 @@ gem 'omniauth-facebook'
 
 gem 'foundation-rails'
 gem 'quiet_assets'
+
+gem 'browser'
