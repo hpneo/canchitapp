@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  poster_path: MyString
+  year: MyString
+  api_id: MyString
+  overview: MyText
+  director: MyString
+  cast: MyText
+
+two:
+  title: MyString
+  poster_path: MyString
+  year: MyString
+  api_id: MyString
+  overview: MyText
+  director: MyString
+  cast: MyText

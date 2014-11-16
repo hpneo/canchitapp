@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116185418) do
+ActiveRecord::Schema.define(version: 20141116190715) do
+
+  create_table "checkins", force: true do |t|
+    t.integer  "movie_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "checkins", ["movie_id"], name: "index_checkins_on_movie_id", using: :btree
+  add_index "checkins", ["user_id"], name: "index_checkins_on_user_id", using: :btree
+
+  create_table "movies", force: true do |t|
+    t.string   "title"
+    t.string   "poster_path"
+    t.string   "year"
+    t.string   "api_id"
+    t.text     "overview"
+    t.string   "director"
+    t.text     "cast"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "facebook_uid"

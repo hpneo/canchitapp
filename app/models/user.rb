@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :checkins
+  
   def self.find_or_create(auth)
     if auth.provider == 'facebook'
       user = User.where(facebook_uid: auth.uid).first || User.new
