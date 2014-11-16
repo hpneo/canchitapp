@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="large-11 small-centered columns">
+    <h2 class="text-center">Mis películas vistas</h2>
+  </div>
+</div>
+<div class="row">
+  <% if current_user.checkins.empty? %>
+    <div class="panel">
+      <p>Aún no has agregado películas. <a href="#" data-reveal-id="checkin-search">¿Agregar una?</a></p>
+    </div>
+  <% else %>
+    <ul class="small-block-grid-3 medium-block-grid-5 large-block-grid-4">
+      <% current_user.checkins.each do |checkin| %>
+        <li>
+          <img class="th" src="<%= @tmdb_configuration[:base_url] + @tmdb_configuration[:poster_sizes][2] + checkin.movie.poster_path %>">
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

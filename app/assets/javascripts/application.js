@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
+//= require tmdb
+//= require checkins
 
 $(function(){ $(document).foundation(); });

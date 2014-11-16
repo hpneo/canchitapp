@@ -27,8 +27,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     browser (0.2.0)
+    buftok (0.2.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -37,6 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    equalizer (0.0.9)
     erubis (2.7.0)
     execjs (2.2.2)
     faraday (0.9.0)
@@ -45,7 +48,14 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     hashie (3.3.1)
+    hashugar (0.0.6)
     hike (1.2.3)
+    http (0.6.3)
+      http_parser.rb (~> 0.6.0)
+    http_parser.rb (0.6.0)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
@@ -55,15 +65,22 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    koala (1.10.1)
+      addressable
+      faraday
+      multi_json
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     mime-types (1.25.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.17)
+    naught (1.0.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -104,6 +121,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.5)
       actionpack (= 4.1.5)
       activesupport (= 4.1.5)
@@ -121,6 +143,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_oauth (0.3.0)
     spring (1.1.3)
     sprockets (2.11.3)
       hike (~> 1.2)
@@ -131,12 +154,26 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    themoviedb (0.0.24)
+      hashugar
+      httparty
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    twitter (5.13.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.9)
+      faraday (~> 0.9.0)
+      http (~> 0.6.0)
+      http_parser.rb (~> 0.6.0)
+      json (~> 1.8)
+      memoizable (~> 0.4.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -152,6 +189,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  koala
   mysql2
   omniauth
   omniauth-facebook
@@ -159,7 +197,10 @@ DEPENDENCIES
   pg
   quiet_assets
   rails (= 4.1.5)
+  rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
+  themoviedb
+  twitter (~> 5.13.0)
   uglifier (>= 1.3.0)

@@ -21,3 +21,9 @@ gem 'foundation-rails'
 gem 'quiet_assets'
 
 gem 'browser'
+
+gem 'rails_12factor', group: :production
+
+gem 'koala'
+gem 'twitter', '~> 5.13.0'
+gem 'themoviedb'
