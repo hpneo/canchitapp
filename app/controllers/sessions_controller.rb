@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
 
     if is_mobile?
-      redirect_to "/info?token=#{auth.token}&secret=#{auth.secret}"
+      redirect_to "/info?token=#{auth.credentials.token}&secret=#{auth.credentials.secret}"
     else
       if user_signed_in?
         user = current_user.update_account(auth)
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def info
-    render status: 200
+    render text: ""
   end
 
   def failure
