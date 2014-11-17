@@ -1,0 +1,29 @@
+<div id="new-checkin" class="reveal-modal" data-reveal>
+  <h3>Agregar película</h3>
+  <div class="row">
+    <div class="small-4 large-4 columns"><img id="checkin_image" src="#"></div>
+    <div class="small-8 large-8 columns">
+      <div class="row">
+        <% if user_signed_in? %>
+          <% if current_user.facebook_token.present? %>
+            <div class="large-6 columns switch">
+              Facebook
+              <input id="checkin_facebook" type="checkbox">
+              <label for="checkin_facebook"></label>
+            </div>
+          <% end %>
+          <% if current_user.twitter_token.present? %>
+            <div class="large-6 columns switch">
+              Twitter
+              <input id="checkin_twitter" type="checkbox">
+              <label for="checkin_twitter"></label>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <textarea id="checkin_comment" placeholder="Escribe un mensaje aquí"></textarea>
+      <input type="hidden" id="checkin_movie_id">
+      <a class="button expand" href="#" id="create_checkin">Agregar</a>
+    </div>
+  </div>
+</div>

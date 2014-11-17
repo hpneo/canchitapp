@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "CanchitApp" %></title>
-
+    <% if params[:debug] == 'true' %>
+      <script type="text/javascript" src="http://domscope.com/inspector.js"></script>
+    <% end %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
     <nav class="top-bar foundation-bar" data-topbar role="navigation">
       <ul class="title-area">
@@ -21,67 +21,28 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <li><a href="#" data-reveal-id="checkin-search">Agregar película</a></li>
+          <li><a href="#" data-reveal-id="search-checkin">Agregar película</a></li>
         </ul>
       </section>
     </nav>
     <section role="main" class="scroll-container">
       <%= yield %>
     </section>
-    <div id="checkin-search" class="reveal-modal" data-reveal>
-      <h3>Buscar película</h3>
-      <form id="search_movies">
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="row collapse">
-              <div class="small-10 columns">
-                <input type="text" id="query" placeholder="Buscar por nombre de película" />
-              </div>
-              <div class="small-2 columns">
-                <input type="submit" class="button postfix" value="Buscar" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <ul id="search_results" class="small-block-grid-2 medium-block-grid-3 large-block-grid-4"></ul>
-        </div>
-      </form>
-    </div>
-    <div id="new-checkin" class="reveal-modal" data-reveal>
-      <h3>Agregar película</h3>
-      <div class="row">
-        <div class="small-4 large-4 columns"><img id="checkin_image" src="#"></div>
-        <div class="small-8 large-8 columns">
-          <div class="row">
-            <% if user_signed_in? %>
-              <% if current_user.facebook_token.present? %>
-                <div class="large-6 columns switch">
-                  Facebook
-                  <input id="checkin_facebook" type="checkbox">
-                  <label for="checkin_facebook"></label>
-                </div>
-              <% end %>
-              <% if current_user.twitter_token.present? %>
-                <div class="large-6 columns switch">
-                  Twitter
-                  <input id="checkin_twitter" type="checkbox">
-                  <label for="checkin_twitter"></label>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-          <textarea id="checkin_comment" placeholder="Escribe un mensaje aquí"></textarea>
-          <input type="hidden" id="checkin_movie_id">
-          <a class="button expand" href="#" id="create_checkin">Agregar</a>
-        </div>
-      </div>
-    </div>
+    <%= render partial: 'modals/search_checkin' %>
+    <%= render partial: 'modals/new_checkin' %>
     <script type="text/javascript">
       var TMDB = {
         settings: <%= @tmdb_configuration.to_json.html_safe %>
       };
     </script>
+    <% if params[:debug] == 'true' %>
+      <script type="text/javascript">
+        Scope.register({
+          identifier: 'canchitapp',
+          client_key: '0206cc8767fc4b5070f87e3a7ae71fec'
+        });
+      </script>
+    <% end %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
