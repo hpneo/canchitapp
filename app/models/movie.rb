@@ -2,7 +2,7 @@ class Movie < ActiveRecord::Base
   has_many :checkins
 
   def self.fromTMDB(api_id)
-    movie = Movie.where(api_id: api_id).first
+    movie = Movie.where(api_id: api_id.to_s).first
 
     if movie.nil?
       tmdb_movie = Tmdb::Movie.detail(api_id.to_i)
