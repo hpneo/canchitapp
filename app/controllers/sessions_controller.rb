@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
 
     if is_mobile?
-      redirect_to "/info?token=#{auth.credentials.token}&secret=#{auth.credentials.secret}"
+      redirect_to "/info?token=#{auth.credentials.token}&secret=#{auth.credentials.secret}&provider=#{auth.provider}&uid=#{auth.uid}"
     else
       if user_signed_in?
         user = current_user.update_account(auth)
