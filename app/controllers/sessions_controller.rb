@@ -24,5 +24,6 @@ class SessionsController < ApplicationController
   end
 
   def failure
+    render text: "Error al iniciar sesión"
   end
 end
