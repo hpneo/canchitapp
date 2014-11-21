@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/auth/failure', to: 'sessions#failure'
   get '/info', to: 'sessions#info'
 
+  get '/map', to: 'home#map'
+
   get '/tmdb/search', to: 'tmdb#search'
 end
