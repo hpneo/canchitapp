@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/info', to: 'sessions#info'
 
   get '/map', to: 'home#map'
-  get '/terms', to: 'home#terms'
+  get '/privacy', to: 'home#privacy'
 
   get '/tmdb/search', to: 'tmdb#search'
 end
