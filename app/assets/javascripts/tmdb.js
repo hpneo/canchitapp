@@ -27,7 +27,7 @@ $('#search_movies').on('click', 'li', function() {
   modal.find('h3').text('Agregar: ' + $(this).data('title'));
   modal.find('#checkin_image').attr('src', $(this).data('poster_path'));
   modal.find('#checkin_movie_id').val($(this).data('api_id'));
-  modal.find('#checkin_comment').val('Estoy viendo ' + $(this).data('title'));
+  modal.find('#checkin_comment').val('');// modal.find('#checkin_comment').val('Estoy viendo ' + $(this).data('title'));
 
   modal.foundation('reveal', 'open');
 });
